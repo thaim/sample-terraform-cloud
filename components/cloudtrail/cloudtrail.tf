@@ -7,7 +7,6 @@ resource "aws_cloudtrail" "main" {
 
 resource "aws_s3_bucket" "cloudtrail" {
   bucket = "spacely-cloudtrail"
-  # acl    = "private"
 
   versioning {
     enabled = true
