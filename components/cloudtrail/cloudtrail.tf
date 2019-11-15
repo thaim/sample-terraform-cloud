@@ -1,12 +1,12 @@
 resource "aws_cloudtrail" "main" {
-  name           = "spacely-cloudtrail"
+  name           = "thaim-cloudtrail"
   s3_bucket_name = "${aws_s3_bucket.cloudtrail.id}"
 
   is_multi_region_trail = true
 }
 
 resource "aws_s3_bucket" "cloudtrail" {
-  bucket = "spacely-cloudtrail"
+  bucket = "thaim-cloudtrail"
 
   versioning {
     enabled = true
