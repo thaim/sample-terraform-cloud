@@ -2,7 +2,7 @@ terraform {
   backend "remote" {
     organization = "thaim"
 
-    workspace {
+    workspaces {
       name = "sample-tfc-cloudtrail"
     }
   }
