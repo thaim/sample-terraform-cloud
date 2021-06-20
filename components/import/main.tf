@@ -1,4 +1,6 @@
 terraform {
+  required_version = "~> 0.15.5"
+
   backend "remote" {
     organization = "thaim"
 
@@ -6,5 +8,16 @@ terraform {
       name = "sample-import-resource"
     }
   }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
 }
 
+provider "aws" {
+  profile = "default"
+  region  = "ap-northeast-1"
+}
