@@ -31,7 +31,7 @@ resource "aws_ecr_repository" "sample_localexec" {
 # ダミーコンテナイメージの保存
 resource "null_resource" "generate_dummy_image" {
   provisioner "local-exec" {
-    command = "aws ecr get-login-password | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.ap-northeast-1.amazonaws.com"
+    command = "aws --region ap-northeast-1 ecr get-login-password | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.ap-northeast-1.amazonaws.com"
   }
 
   # ダミーイメージとしてalpineを利用する
