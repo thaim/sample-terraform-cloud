@@ -56,3 +56,4 @@ resource "null_resource" "generate_dummy_image" {
   }
 }
 
+data "aws_ecr_authorization_token" "token" {}
