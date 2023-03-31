@@ -44,20 +44,20 @@ resource "aws_iam_role_policy_attachment" "administrator_access" {
 
 # Terraform Cloudに作成する認証情報
 resource "tfe_variable_set" "aws_oidc" {
-  name = "AWS OIDC Authentication"
+  name         = "AWS OIDC Authentication"
   organization = var.tfc_organization_name
 }
 
 resource "tfe_variable" "provider_auth" {
-  key = "TFC_AWS_PROVIDER_AUTH"
-  value = true
-  category = "env"
+  key             = "TFC_AWS_PROVIDER_AUTH"
+  value           = true
+  category        = "env"
   variable_set_id = tfe_variable_set.aws_oidc.id
 }
 
 resource "tfe_variable" "run_role_arn" {
-  key = "TFC_AWS_RUN_ROLE_ARN"
-  value = aws_iam_role.tfc_role.arn
-  category = "env"
+  key             = "TFC_AWS_RUN_ROLE_ARN"
+  value           = aws_iam_role.tfc_role.arn
+  category        = "env"
   variable_set_id = tfe_variable_set.aws_oidc.id
 }
