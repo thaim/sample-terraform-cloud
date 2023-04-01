@@ -42,14 +42,14 @@ resource "aws_iam_role_policy_attachment" "gha_s3" {
 }
 
 resource "aws_iam_policy" "upload_s3" {
-  name = "AllowUploadS3Object"
+  name   = "AllowUploadS3Object"
   policy = data.aws_iam_policy_document.upload_s3.json
 }
 
 data "aws_iam_policy_document" "upload_s3" {
   statement {
-    effect    = "Allow"
-    actions   = [
+    effect = "Allow"
+    actions = [
       "s3:ListAllMyBuckets",
       "s3:PutObject"
     ]
