@@ -9,3 +9,7 @@ variable "tfc_project_name" {
 variable "tfc_workspace_name" {
   type = string
 }
+
+variable "gha_oidc_repos" {
+  type = list(string)
+}
